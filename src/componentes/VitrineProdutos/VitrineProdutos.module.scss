@@ -1,0 +1,67 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.vitrine {
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.cabecalhoVitrine {
+  margin-bottom: 25px;
+}
+
+.envolvedorTitulo {
+  @include flex-centralizar;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.linha {
+  flex: 1;
+  height: 1px;
+  background-color: $cor-borda;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: $cor-texto-suave;
+  white-space: nowrap;
+}
+
+.filtros {
+  @include flex-centralizar;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.itemFiltro {
+  button {
+    font-size: 12px;
+    font-weight: 600;
+    color: $cor-texto-claro;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  &.ativo button {
+    background-color: $cor-azul-escuro;
+    color: $cor-branca;
+  }
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @include responder-para(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responder-para(celular) {
+    grid-template-columns: 1fr;
+  }
+}

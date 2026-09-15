@@ -1,0 +1,136 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.sobrepor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  @include flex-centralizar;
+  padding: 20px;
+}
+
+.modal {
+  background-color: $cor-branca;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 850px;
+  position: relative;
+  overflow: hidden;
+
+  @include responder-para(tablet) {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+.botaoFechar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  color: $cor-branca;
+}
+
+.conteudoModal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+
+  @include responder-para(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.containerImagem {
+  @include flex-centralizar;
+  background: linear-gradient(135deg, $cor-azul 0%, $cor-roxa 100%);
+  padding: 30px;
+  position: relative;
+}
+
+.imagemModal {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+}
+
+.containerFormulario {
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include responder-para(tablet) {
+    padding: 30px 25px;
+  }
+}
+
+.tituloModal {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $cor-texto-suave;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+
+  strong {
+    color: $cor-amarela;
+  }
+}
+
+.subtituloModal {
+  font-size: 14px;
+  color: $cor-texto-claro;
+  margin-bottom: 30px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campoInput {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: $cor-fundo;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: $cor-texto;
+  outline: none;
+  transition: box-shadow 0.2s;
+
+  &::placeholder {
+    color: $cor-texto-claro;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $cor-azul-escuro;
+  }
+}
+
+.botaoEnviar {
+  width: 100%;
+  background-color: $cor-amarela;
+  color: $cor-azul;
+  padding: 16px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  margin-top: 15px;
+
+  &:hover {
+    background-color: lighten($cor-amarela, 8%);
+    transform: translateY(-2px);
+  }
+}

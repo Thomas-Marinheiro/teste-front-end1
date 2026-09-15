@@ -1,0 +1,178 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.cabecalho {
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: $cor-branca;
+}
+
+.barraSuperior {
+  border-bottom: 1px solid $cor-borda;
+  padding: 10px 0;
+}
+
+.conteudoBarraSuperior {
+  @include flex-centralizar;
+  gap: 80px;
+
+  @include responder-para(tablet) {
+    gap: 15px;
+    justify-content: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.itemInformacao {
+  @include flex-centralizar;
+  gap: 8px;
+  color: $cor-texto-claro;
+  font-size: 12px;
+  flex-shrink: 0;
+
+  strong {
+    color: $cor-azul-escuro;
+    font-weight: 600;
+  }
+}
+
+.barraPrincipal {
+  padding: 20px 0;
+  border-bottom: 1px solid $cor-borda;
+}
+
+.conteudoPrincipal {
+  @include flex-espacar;
+  gap: 20px;
+
+  @include responder-para(tablet) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo acoes"
+      "busca busca";
+    gap: 15px;
+    padding: 0 15px;
+  }
+}
+
+.logo {
+  @include responder-para(tablet) {
+    grid-area: logo;
+  }
+  img {
+    height: 50px;
+    width: auto;
+
+    @include responder-para(tablet) {
+      height: 35px;
+    }
+  }
+}
+
+.busca {
+  flex: 1;
+  max-width: 716px;
+  position: relative;
+  @include flex-centralizar;
+
+  @include responder-para(tablet) {
+    grid-area: busca;
+    width: 100%;
+    max-width: none;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 24px;
+    background: $cor-fundo;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+
+    @include responder-para(tablet) {
+      padding: 12px 20px;
+    }
+
+    &::placeholder {
+      color: $cor-texto-claro;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 24px;
+    @include flex-centralizar;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @include responder-para(tablet) {
+      right: 15px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.acoes {
+  @include flex-centralizar;
+  gap: 30px;
+
+  @include responder-para(tablet) {
+    grid-area: acoes;
+    justify-self: end;
+    gap: 20px;
+  }
+}
+
+.itemAcao {
+  @include flex-centralizar;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.navegacao {
+  padding: 15px 0;
+}
+
+.listaNavegacao {
+  @include flex-espacar;
+
+  @include responder-para(tablet) {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 5px;
+  }
+}
+
+.itemNavegacao {
+  font-size: 12px;
+  font-weight: 600;
+  color: $cor-texto-claro;
+  white-space: nowrap;
+
+  &:hover,
+  &Destaque {
+    color: $cor-azul-escuro;
+  }
+}
+
+.itemNavegacaoDestaque {
+  @include flex-centralizar;
+  gap: 8px;
+}

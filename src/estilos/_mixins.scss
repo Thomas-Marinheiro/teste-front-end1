@@ -1,0 +1,29 @@
+@import './variables';
+
+@mixin container {
+  max-width: $largura-container;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@mixin flex-centralizar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-espacar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin responder-para($ponto-quebra) {
+  @if $ponto-quebra == celular {
+    @media (max-width: $bp-celular) { @content; }
+  } @else if $ponto-quebra == tablet {
+    @media (max-width: $bp-tablet) { @content; }
+  } @else if $ponto-quebra == desktop {
+    @media (max-width: $bp-desktop) { @content; }
+  }
+}

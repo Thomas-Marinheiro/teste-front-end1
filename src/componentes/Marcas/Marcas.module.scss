@@ -1,0 +1,46 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.marcas {
+  padding: 60px 0;
+  margin-bottom: 60px;
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: 700;
+  color: $cor-texto-suave;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.listaMarcas {
+  @include flex-espacar;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.itemMarca {
+  @include flex-centralizar;
+  width: 120px;
+  height: 120px;
+  background-color: $cor-branca;
+  border: 1px solid $cor-borda;
+  border-radius: 50%;
+  transition: all 0.3s;
+  padding: 20px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: $cor-azul-escuro;
+  }
+
+  img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+}
